@@ -1,32 +1,22 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div>
+    <header class="header">
+      <router-link to="/" class="header--link">トップ</router-link>
+      <router-link to="/about" class="header--link">詳細</router-link>
+      <router-link to="/login" class="header--link">ログイン</router-link>
+      <router-link to="/register" class="header--link">新規登録</router-link>
+    </header>
+    <router-view></router-view> 
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+<style scoped>
+.header {
   text-align: center;
-  color: #2c3e50;
+  display: flex;
+  justify-content: center;
 }
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.header--link {
+  padding: 10px;
 }
 </style>
