@@ -20,3 +20,30 @@
   padding: 10px;
 }
 </style>
+
+<script>
+import axios from 'axios';
+export default {
+  data(){
+    return {
+      email:"",
+      password:""
+    }
+  },
+  methods: {
+    register(){
+      axios.post("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAtN30m_7OBSzE-hxbRTjECNXWEDQ0zaPM",
+      {
+        email:this.email,
+        password:this.password,
+        returnSecureToken: true
+      }
+      ).then((response) => {
+        console.log(response);
+      });
+      this.email= "";
+      this.password= "";
+    }
+  }
+}
+</script>
