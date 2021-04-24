@@ -11,23 +11,30 @@
       <input type="password" id="password" v-model= "password">
     </div>
     <div class="input-group">
-      <button type="button" @click= register()>新規登録</button>
+      <button type="button" @click= "register()" >新規登録</button>
+      <modal v-if= "showModal" @close = "showModal = false"></modal>
+      <p v-if = "again">もう一度入力してください</p>
     </div>
   </form>
 </div>
 </template>
 
 <script>
+import modal from '../components/modal.vue';
 import axios from '../axios-for-auth';
 export default {
+    components:{modal},
     data(){
         return {
+            showModal:false,
             email:"",
-            password:""
+            password:"",
+            again:false,
         }
     },
     methods: {
         register(){
+          try{
             axios.post(
                 '/accounts:signUp?key=AIzaSyAtN30m_7OBSzE-hxbRTjECNXWEDQ0zaPM',
             {
@@ -36,11 +43,14 @@ export default {
                 returnSecureToken: true
             }
             ).then((response) => {
+                this.showModal=true;
                 console.log(response);
-            });
+            })} catch (error) {
+                this.again=true;
+            }
             this.email= "";
             this.password= "";
-        }
+        },
     }
 }
 </script>
