@@ -4,6 +4,7 @@
             <div class="panel">
                 <h3>登録完了</h3>
                 <button @click= "$emit('close')">閉じる</button>
+                <button @click= "$router.push('/Login'); ">ログイン画面へ</button>
             </div>
         </div>
     </transition> 
@@ -19,7 +20,7 @@
         methods:{
             closemodal(){
                 this.show = true;
-            }
+            },
         }
     }
 </script>

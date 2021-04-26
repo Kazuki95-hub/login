@@ -7,7 +7,6 @@
       <router-link to="/register" class="header--link">新規登録</router-link>
     </header>
     <div id="app">
-      <!-- <button @click= "showModal = true"></button> -->
     </div>
     <router-view></router-view> 
   </div>

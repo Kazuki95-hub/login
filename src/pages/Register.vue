@@ -13,28 +13,29 @@
     <div class="input-group">
       <button type="button" @click= "register()" >新規登録</button>
       <modal v-if= "showModal" @close = "showModal = false"></modal>
-      <p v-if = "again">もう一度入力してください</p>
+      <modalfailed v-if= "showFailed"></modalfailed>
     </div>
   </form>
 </div>
 </template>
 
 <script>
+
 import modal from '../components/modal.vue';
 import axios from '../axios-for-auth';
+import modalfailed from '../components/modalfailed.vue';
 export default {
-    components:{modal},
+    components:{modal, modalfailed},
     data(){
         return {
+            showFailed:false,
             showModal:false,
             email:"",
             password:"",
-            again:false,
         }
     },
     methods: {
         register(){
-          try{
             axios.post(
                 '/accounts:signUp?key=AIzaSyAtN30m_7OBSzE-hxbRTjECNXWEDQ0zaPM',
             {
@@ -43,11 +44,14 @@ export default {
                 returnSecureToken: true
             }
             ).then((response) => {
+                this.$store.commit('updateIdToken',response.data.idToken);
+                this.$router.push('/');
                 this.showModal=true;
+                this.showFailed= false;
                 console.log(response);
-            })} catch (error) {
-                this.again=true;
-            }
+            }).catch(() => {
+              this.showFailed = true;
+            })
             this.email= "";
             this.password= "";
         },

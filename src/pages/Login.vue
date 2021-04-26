@@ -11,7 +11,7 @@
       <input type="password" id="password" v-model= "password">
     </div>
     <div class="input-group">
-      <button type="button" @click= "login()">送信</button>
+      <button type="button" @click= "login()">ログイン</button>
     </div>
   </form>
 </div>
@@ -23,7 +23,7 @@
 }
 </style>
 <script>
-import axios from '../axios-for-auth';
+import axios from '../axios-signin-auth';
 export default {
   data(){
     return {
@@ -32,7 +32,7 @@ export default {
     }
   },
   methods: {
-    login(){
+    login() {
       axios.post(
         '/accounts:signInWithPassword?key=AIzaSyAtN30m_7OBSzE-hxbRTjECNXWEDQ0zaPM',
         {
@@ -40,9 +40,11 @@ export default {
           password:this.password,
           returnSecureToken: true
         }
-      ).then((response)=>{
-        console.log(response);
-      });
+      ).then((response) => {
+        this.$store.commit('updateIdToken', response.data.idToken)
+        this.$router.push('/profile');
+        console.log(response)
+      })
       this.email= "";
       this.password= "";
     }

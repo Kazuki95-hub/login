@@ -5,11 +5,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    idToken:null
   },
   mutations: {
+    updateIdToken(state,idToken) {
+      state.idToken = idToken;
+    }
   },
-  actions: {
+  getters:{
+    idToken: state => state.idToken
   },
-  modules: {
-  }
 })

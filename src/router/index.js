@@ -5,6 +5,8 @@ import About from '../pages/About.vue';
 import Login from '../pages/Login.vue';
 import Register from '../pages/Register.vue';
 import modal from '../components/modal.vue';
+import profile from '../components/profile.vue';
+// import store from '../store/index';
 
 Vue.use(VueRouter)
 
@@ -33,6 +35,18 @@ const routes = [
     path:'/modal',
     name:'modal',
     component:modal
+  },
+  {
+    path:'/profile',
+    name: 'profile',
+    component:profile
+    // beforeEnter(to,from,next){
+    //   if(store.getters.idToken) {
+    //     next("/");
+    //   }else {
+    //     next();
+    //   }
+    // }
   }
 ]
 
