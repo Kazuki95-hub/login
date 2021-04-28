@@ -45,7 +45,7 @@ export default {
             }
             ).then((response) => {
                 this.$store.commit('updateIdToken',response.data.idToken);
-                this.$router.push('/');
+                // this.$router.push({ name:});
                 this.showModal=true;
                 this.showFailed= false;
                 console.log(response);

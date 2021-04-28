@@ -13,8 +13,10 @@
     <div class="input-group">
       <button type="button" @click= "login()">ログイン</button>
     </div>
+    <modalfailed v-if= "showmodal"></modalfailed>
   </form>
 </div>
+
 </template>
 
 <style>
@@ -23,10 +25,13 @@
 }
 </style>
 <script>
+import modalfailed from '../components/modalfailed.vue';
 import axios from '../axios-signin-auth';
 export default {
+  components:{modalfailed},
   data(){
     return {
+      showmodal: false,
       email: "",
       password: ""
     }
@@ -42,9 +47,11 @@ export default {
         }
       ).then((response) => {
         this.$store.commit('updateIdToken', response.data.idToken)
-        this.$router.push('/profile');
+        this.$router.push({ name:'profile'});
         console.log(response)
-      })
+      }).catch(() => {
+        this.showmodal= true;
+      });
       this.email= "";
       this.password= "";
     }

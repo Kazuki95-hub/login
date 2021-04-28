@@ -6,8 +6,6 @@
       <router-link to="/login" class="header--link">ログイン</router-link>
       <router-link to="/register" class="header--link">新規登録</router-link>
     </header>
-    <div id="app">
-    </div>
     <router-view></router-view> 
   </div>
 </template>
