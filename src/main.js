@@ -7,14 +7,14 @@ import axios from 'axios';
 
 
 
-// const firebaseConfig = {
-//     apiKey: "AIzaSyAtN30m_7OBSzE-hxbRTjECNXWEDQ0zaPM",
-//     authDomain: "login2-83980.firebaseapp.com",
-//     projectId: "login2-83980",
-//     storageBucket: "login2-83980.appspot.com",
-//     messagingSenderId: "855258455062",
-//     appId: "1:855258455062:web:b03531de7e2e0da2c76937"
-// };
+const firebaseConfig = {
+    
+    authDomain: "login2-83980.firebaseapp.com",
+    projectId: "login2-83980",
+    storageBucket: "login2-83980.appspot.com",
+    messagingSenderId: "855258455062",
+    appId: "1:855258455062:web:b03531de7e2e0da2c76937"
+};
 
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false

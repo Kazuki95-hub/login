@@ -1,7 +1,7 @@
 <template>
     <div class= "container">
         <h2>プロフィール入力画面</h2>
-        <form class= "profile-form">
+        <div class= "profile-form">
             <div class="input-group">
                 <label for="name">名前</label>
                 <input type="text" v-model= "name">
@@ -15,7 +15,7 @@
                 <label for="introduction">自己紹介</label>
                 <input type="text" v-model= "introduction">
             </div> -->
-        </form>
+        </div>
         
         <div class="output" v-if= "inputDocRef != ''">
             <span>Output Text : {{ output }}</span>
@@ -30,6 +30,7 @@
 
 <script>
     import firebase from 'firebase/app';
+    import "firebase/firestore";
     export default {
         data(){
             return {
@@ -44,9 +45,11 @@
         methods:{
             submit(){
                 const config = {
-                    apikey: "AIzaSyAtN30m_7OBSzE-hxbRTjECNXWEDQ0zaPM",
-                    authDomain:"login2-83980.firebaseapp.com",
-                    projectId:"login2-83980",
+                    authDomain: "login2-83980.firebaseapp.com",
+                    projectId: "login2-83980",
+                    storageBucket: "login2-83980.appspot.com",
+                    messagingSenderId: "855258455062",
+                    appId: "1:855258455062:web:b03531de7e2e0da2c76937"
                 };
                 const app = firebase.initializeApp(config);
                 const db = firebase.firestore(app);
@@ -54,7 +57,7 @@
                 let self = this;
                 db.collection("test1")
                 .add({
-                    text:this.input,
+                    text:self.name,
                 })
                 .then(function(docRef){
                     console.log("完了");

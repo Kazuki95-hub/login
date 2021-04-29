@@ -37,7 +37,7 @@ export default {
     methods: {
         register(){
             axios.post(
-                '/accounts:signUp?key=AIzaSyAtN30m_7OBSzE-hxbRTjECNXWEDQ0zaPM',
+                '/accounts:signUp?key=',
             {
                 email:this.email,
                 password:this.password,

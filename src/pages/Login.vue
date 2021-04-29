@@ -39,7 +39,7 @@ export default {
   methods: {
     login() {
       axios.post(
-        '/accounts:signInWithPassword?key=AIzaSyAtN30m_7OBSzE-hxbRTjECNXWEDQ0zaPM',
+        '/accounts:signInWithPassword?key=',
         {
           email:this.email,
           password:this.password,
