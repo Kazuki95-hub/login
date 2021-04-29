@@ -3,29 +3,28 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import axios from 'axios';
-import firebase from 'firebase/app';
-import "firebase/firestore";
 
 
 
-const firebaseConfig = {
-  apiKey: "AIzaSyC3hJFvulT-8vK4ZAd37WiZP7-mn3STuBk",
-  authDomain: "test-8a927.firebaseapp.com",
-  projectId: "test-8a927",
-  storageBucket: "test-8a927.appspot.com",
-  messagingSenderId: "1095396944587",
-  appId: "1:1095396944587:web:e6bb2ec0af620e0564894e"
-};
+
+// const firebaseConfig = {
+//     apiKey: "AIzaSyAtN30m_7OBSzE-hxbRTjECNXWEDQ0zaPM",
+//     authDomain: "login2-83980.firebaseapp.com",
+//     projectId: "login2-83980",
+//     storageBucket: "login2-83980.appspot.com",
+//     messagingSenderId: "855258455062",
+//     appId: "1:855258455062:web:b03531de7e2e0da2c76937"
+// };
 
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
+// const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-const firestore =firebaseApp.firestore();
-firestore.settings({ timestampsInSnapshots:true})
+// const firestore =firebaseApp.firestore();
+// firestore.settings({ timestampsInSnapshots:true})
 
-export default firestore;
+// export default firestore;
 
 new Vue({
   router,
