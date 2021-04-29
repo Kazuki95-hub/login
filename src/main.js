@@ -6,8 +6,7 @@ import axios from 'axios';
 import firebase from 'firebase/app';
 import "firebase/firestore";
 
-Vue.prototype.$axios = axios;
-Vue.config.productionTip = false
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyC3hJFvulT-8vK4ZAd37WiZP7-mn3STuBk",
@@ -17,6 +16,9 @@ const firebaseConfig = {
   messagingSenderId: "1095396944587",
   appId: "1:1095396944587:web:e6bb2ec0af620e0564894e"
 };
+
+Vue.prototype.$axios = axios;
+Vue.config.productionTip = false
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 

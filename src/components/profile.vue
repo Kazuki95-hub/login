@@ -43,10 +43,7 @@
         methods:{
             submit(){
                 let self = this;
-
                 let db = firebase.firestore();
-
-
                 db.collection("test1").add({
                     text:this.input,
                 }).then(function(docRef) {
@@ -61,5 +58,4 @@
 </script>
 
 <style scoped>
-
 </style>
